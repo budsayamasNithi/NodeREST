@@ -4,21 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/CRUDBookNoDB.js",
     "format": "prettier --write *.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/CRUDBookNoDB.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pluto454523/NodeREST.git"
+    "url": "git+https://github.com/budsayamasNithi/NodeREST.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Pluto454523/NodeREST/issues"
+    "url": "https://github.com/budsayamasNithi/NodeREST/issues"
   },
-  "homepage": "https://github.com/Pluto454523/NodeREST#readme",
+  "homepage": "https://github.com/budsayamasNithi/NodeREST#readme",
   "devDependencies": {
     "nodemon": "^2.0.20",
     "prettier": "^2.8.3"
