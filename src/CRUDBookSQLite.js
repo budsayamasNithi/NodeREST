@@ -9,7 +9,7 @@ const sqlite3 = require('sqlite3');
 const app = express();
 
 // connect to database
-const db = new sqlite3.Database('./Database/Book.sqlite');
+const db = new sqlite3.Database('./Database/Books.sqlite');
 
 // parse incoming requests
 app.use(express.json());
@@ -39,7 +39,7 @@ app.get('/books/:id',(req,res) => {
             res.status(500).send(err);
         } else {
             if(!row){
-                res.status(400).send('Book not found');
+                res.status(404).send('Book not found');
             } else {
                 res.json(row);
             }
@@ -50,7 +50,7 @@ app.get('/books/:id',(req,res) => {
 // route to create a new book
 app.post('/books',(req, res) => {
     const book = req.body;
-    db.run('TNSERT INTO books (titke, author) VALUE (?,?)', book.title, book.author, function(err){
+    db.run('INSERT INTO books (title, author) VALUES (?,?)', book.title, book.author, function(err){
         if (err) {
             res.status(500).send(err);
         } else {
@@ -63,7 +63,7 @@ app.post('/books',(req, res) => {
 // route to update a book
 app.put('/books/:id', (req,res) => {
     const book = req.body;
-    db.run('UPDATE books SET title = ?, author = ? WHERE id = ?',book.title, bool.author, req.params.id, function(err) {
+    db.run('UPDATE books SET title = ?, author = ? WHERE id = ?',book.title, book.author, req.params.id, function(err) {
         if (err) {
             res.status(500).send(err);
         } else {
